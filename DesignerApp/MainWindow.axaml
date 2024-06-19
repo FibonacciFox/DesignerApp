@@ -1,0 +1,70 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DesignerApp"
+        xmlns:controls="clr-namespace:DesignerApp.Controls"
+        x:Class="DesignerApp.MainWindow"
+        Title="Designer App" Width="1400" Height="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
+        </Grid.RowDefinitions>
+
+        <!-- Controls Tree Panel -->
+        <Border Grid.Row="0" Grid.Column="0" Background="#EFEFEF" Margin="10" Padding="10" CornerRadius="5">
+            <StackPanel>
+                <TextBlock Text="Controls Tree" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                <TreeView Name="ControlsTree" SelectionChanged="ControlsTree_SelectionChanged" />
+            </StackPanel>
+        </Border>
+
+        <!-- Designer Panel -->
+        <Border Grid.Row="0" Grid.Column="1" Background="LightGray" Margin="10" Padding="10" CornerRadius="5">
+            <Canvas Name="DesignerCanvas" Background="White"/>
+        </Border>
+
+        <!-- Controls Panel -->
+        <Border Grid.Row="0" Grid.Column="2" Background="#EFEFEF" Margin="10" Padding="10" CornerRadius="5">
+            <StackPanel>
+                <TextBlock Text="Add Controls" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                <ListBox Name="ControlsListView" SelectionChanged="ControlsListView_SelectionChanged">
+                    <ListBox.Items>
+                        <TextBlock Text="Button" Tag="Button"/>
+                        <TextBlock Text="TextBox" Tag="TextBox"/>
+                        <TextBlock Text="Label" Tag="Label"/>
+                        <TextBlock Text="StackPanel" Tag="StackPanel"/>
+                        <TextBlock Text="DockPanel" Tag="DockPanel"/>
+                        <TextBlock Text="Grid" Tag="Grid"/>
+                        <TextBlock Text="ComboBox" Tag="ComboBox"/>
+                        <TextBlock Text="CheckBox" Tag="CheckBox"/>
+                        <TextBlock Text="RadioButton" Tag="RadioButton"/>
+                        <TextBlock Text="Slider" Tag="Slider"/>
+                        <TextBlock Text="ProgressBar" Tag="ProgressBar"/>
+                        <TextBlock Text="Image" Tag="Image"/>
+                    </ListBox.Items>
+                </ListBox>
+            </StackPanel>
+        </Border>
+
+        <!-- Properties Panel -->
+        <Border Grid.Row="0" Grid.Column="3" Background="#EFEFEF" Margin="10" Padding="10" CornerRadius="5">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Properties" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                    <controls:PropertiesEditor Name="PropertiesEditor" />
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Axaml Text Box -->
+        <Border Grid.Row="1" Grid.ColumnSpan="4" Background="#EFEFEF" Margin="10" Padding="10" CornerRadius="5">
+            <TextBox Name="AxamlTextBox" AcceptsReturn="True" IsReadOnly="True" />
+        </Border>
+    </Grid>
+</Window>
